@@ -6,7 +6,12 @@
 }
 
 body {
-    background-color: #ffeef2; 
+    /* Use your new retro image as the background */
+    background-image: url('background.png');
+    background-size: cover; /* This makes it fill the whole phone screen */
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background still when scrolling */
+    
     font-family: 'Courier New', Courier, monospace; 
     display: flex;
     justify-content: center;
@@ -121,3 +126,4 @@ button {
     h1 { font-size: 1.4rem; }
     button { padding: 10px 20px; font-size: 1rem; }
 }
+
