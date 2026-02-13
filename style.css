@@ -126,4 +126,8 @@ button {
     h1 { font-size: 1.4rem; }
     button { padding: 10px 20px; font-size: 1rem; }
 }
+.hidden {
+    display: none !important;
+}
+
 
