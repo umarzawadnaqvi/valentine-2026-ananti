@@ -6,18 +6,23 @@ const hint = document.getElementById('memory-hint');
 noBtn.addEventListener('mouseover', () => {
     hoverCount++;
     
-    // 1. Move the NO button randomly
-    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-    noBtn.style.position = 'absolute';
+    // Keep NO button within mobile screen bounds
+    const padding = 20;
+    const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+    const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+    
+    const x = Math.max(padding, Math.random() * maxX);
+    const y = Math.max(padding, Math.random() * maxY);
+    
+    noBtn.style.position = 'fixed';
     noBtn.style.left = `${x}px`;
     noBtn.style.top = `${y}px`;
 
-    // 2. Scale the YES button
-    let scale = 1 + (hoverCount * 0.4);
+    // Scale YES button gradually
+    let scale = 1 + (hoverCount * 0.15);
     yesBtn.style.transform = `scale(${scale})`;
 
-    // 3. Transformation at 5 hovers
+    // Transformation at 5 hovers
     if (hoverCount === 5) {
         yesBtn.classList.add('glass-frame');
         hint.style.opacity = '1';
@@ -25,10 +30,9 @@ noBtn.addEventListener('mouseover', () => {
 });
 
 yesBtn.addEventListener('click', () => {
-    document.getElementById('main-container').classList.add('hidden'); // Hide question
-    document.getElementById('celebration').classList.remove('hidden'); // Show photos
+    document.getElementById('main-container').classList.add('hidden');
+    document.getElementById('celebration').classList.remove('hidden');
     
-    // Fireworks/Confetti burst
     confetti({
         particleCount: 150,
         spread: 70,
