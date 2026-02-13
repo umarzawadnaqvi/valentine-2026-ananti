@@ -6,12 +6,10 @@
 }
 
 body {
-    /* Use your new retro image as the background */
     background-image: url('background.png');
-    background-size: cover; /* This makes it fill the whole phone screen */
+    background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Keeps the background still when scrolling */
-    
+    background-attachment: fixed;
     font-family: 'Courier New', Courier, monospace; 
     display: flex;
     justify-content: center;
@@ -26,27 +24,26 @@ body {
     width: 100%;
 }
 
-h1 {
-    color: #ff4d6d;
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px #fff;
+h1, h2 {
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
 }
 
-/* Button Wrapper for Mobile */
 .button-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
+    min-height: 150px;
     position: relative;
-    min-height: 100px;
 }
 
 button {
     padding: 12px 24px;
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 900;
     border: 3px solid #000;
     box-shadow: 4px 4px 0px #000;
     cursor: pointer;
@@ -64,42 +61,40 @@ button {
     color: white;
 }
 
-/* The Glass Frame - Visualizing the 2024 Rose */
 .glass-frame {
-    background: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 5px solid #ffd700 !important;
-    background-image: url('rose.png');
-    background-size: 30px;
-    background-repeat: no-repeat;
-    background-position: center 5px;
-    padding-top: 40px !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(2px) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+    border: 6px solid #ffd700 !important;
+    background-image: url('rose.png') !important;
+    background-size: 40px !important;
+    background-repeat: no-repeat !important;
+    background-position: center 10px !important;
+    padding-top: 60px !important;
 }
 
 #memory-hint {
     margin-top: 20px;
-    color: #ff758c;
-    font-size: 0.9rem;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px #000;
     opacity: 0;
     transition: opacity 1s ease;
 }
 
-/* Celebration Display (Managed by script.js) */
 #celebration {
-    display: none; /* Controlled by JS classes */
+    display: none;
     flex-direction: column;
     align-items: center;
     padding: 20px;
 }
 
-/* Fix for your script.js logic */
-#main-container.hidden {
-    display: none !important;
-}
-
 #celebration:not(.hidden) {
     display: flex !important;
+}
+
+.hidden {
+    display: none !important;
 }
 
 .photo-gallery {
@@ -113,21 +108,10 @@ button {
     width: 280px;
     max-width: 90vw;
     border: 6px solid white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     transform: rotate(-2deg);
 }
 
 .photo:nth-child(even) {
     transform: rotate(2deg);
 }
-
-/* Responsive Fixes */
-@media (max-width: 480px) {
-    h1 { font-size: 1.4rem; }
-    button { padding: 10px 20px; font-size: 1rem; }
-}
-.hidden {
-    display: none !important;
-}
-
-
