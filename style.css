@@ -6,45 +6,46 @@
 }
 
 body {
-    background-color: #ffeef2; /* Light romantic pink */
-    font-family: 'Courier New', Courier, monospace; /* Retro typewriter feel */
+    background-color: #ffeef2; 
+    font-family: 'Courier New', Courier, monospace; 
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
     text-align: center;
 }
 
 #main-container {
     padding: 20px;
-    transition: opacity 0.5s ease;
+    width: 100%;
 }
 
 h1 {
     color: #ff4d6d;
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 30px;
     text-shadow: 2px 2px #fff;
 }
 
-/* Button Styling */
+/* Button Wrapper for Mobile */
 .button-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    height: 150px; /* Space for the YES button to grow */
+    gap: 15px;
+    position: relative;
+    min-height: 100px;
 }
 
 button {
-    padding: 15px 25px;
-    font-size: 1.2rem;
+    padding: 12px 24px;
+    font-size: 1.1rem;
     font-weight: bold;
-    border: 4px solid #000;
-    box-shadow: 4px 4px 0px #000; /* Retro 8-bit shadow */
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0px #000;
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.3s;
+    transition: transform 0.1s ease;
 }
 
 #yesBtn {
@@ -56,53 +57,44 @@ button {
 #noBtn {
     background-color: #808080;
     color: white;
-    transition: all 0.2s ease;
 }
 
-button:active {
-    box-shadow: 0px 0px 0px #000;
-    transform: translate(4px, 4px);
-}
-
-/* The Glass Frame Transformation */
+/* The Glass Frame - Visualizing the 2024 Rose */
 .glass-frame {
     background: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 6px solid #ffd700 !important; /* Gold pixel border */
-    color: #ff4d6d !important;
-    
-    /* Insert the Rose */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 5px solid #ffd700 !important;
     background-image: url('rose.png');
-    background-size: 40px;
+    background-size: 30px;
     background-repeat: no-repeat;
-    background-position: center 10px;
-    padding-top: 50px !important;
+    background-position: center 5px;
+    padding-top: 40px !important;
 }
 
-/* Memory Hint Styling */
 #memory-hint {
     margin-top: 20px;
     color: #ff758c;
-    font-style: italic;
-    opacity: 0; /* Hidden until 5 hovers */
+    font-size: 0.9rem;
+    opacity: 0;
     transition: opacity 1s ease;
 }
 
-/* Celebration Section (Hidden initially) */
+/* Celebration Display (Managed by script.js) */
 #celebration {
-    display: none; /* Logic in script.js will change this to 'block' */
+    display: none; /* Controlled by JS classes */
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    padding: 20px;
 }
 
-#celebration.hidden {
-    display: none;
+/* Fix for your script.js logic */
+#main-container.hidden {
+    display: none !important;
 }
 
 #celebration:not(.hidden) {
-    display: flex;
+    display: flex !important;
 }
 
 .photo-gallery {
@@ -113,32 +105,19 @@ button:active {
 }
 
 .photo {
-    width: 250px; /* Perfect size for mobile screens */
-    border: 8px solid white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transform: rotate(-3deg);
+    width: 280px;
+    max-width: 90vw;
+    border: 6px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transform: rotate(-2deg);
 }
 
 .photo:nth-child(even) {
-    transform: rotate(3deg);
+    transform: rotate(2deg);
 }
 
-h2 {
-    color: #ff4d6d;
-    margin-top: 10px;
-}
-
-/* Utility Class */
-.hidden {
-    display: none !important;
-}
-
-/* Mobile Adjustments */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-    .photo {
-        width: 80vw;
-    }
+/* Responsive Fixes */
+@media (max-width: 480px) {
+    h1 { font-size: 1.4rem; }
+    button { padding: 10px 20px; font-size: 1rem; }
 }
