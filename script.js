@@ -25,9 +25,10 @@ noBtn.addEventListener('mouseover', () => {
 });
 
 yesBtn.addEventListener('click', () => {
-    document.getElementById('main-container').classList.add('hidden');
-    document.getElementById('celebration').classList.remove('hidden');
-    
+    document.getElementById('main-container').classList.add('hidden'); // Hide question
+    document.getElementById('celebration').classList.remove('hidden'); // Show photos
+    // Add confetti here if you want!
+});
     // Fireworks/Confetti burst
     confetti({
         particleCount: 150,
